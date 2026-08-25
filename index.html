@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="fr">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HamLearn — Science & Réussite scolaire</title><link rel="stylesheet" href="style.css"></head>
@@ -6,7 +6,7 @@
 <header>
   <div class="brand"><div class="logo"><span>H</span><i>+</i></div><div><b>HamLearn</b><small>Science & Réussite scolaire</small></div></div>
   <nav><a href="#cours">Cours</a><a href="#methode">Méthode</a><a href="#offres">Offres</a><a href="#parents">Parents</a><a href="#enseignants">Enseignants</a></nav>
-  <button class="btn outline" onclick="openAuthModal()">Se connecter</button>
+  <button class="btn outline" onclick="openModal('login')">Se connecter</button>
 </header>
 
 <section class="hero">
@@ -17,23 +17,25 @@
   <div class="actions"><button class="btn primary" onclick="location.hash='cours'">Découvrir les cours</button><button class="btn soft" onclick="openModal('trial')">Essai gratuit</button></div>
   <div class="trust"><span>🔬 Sciences</span><span>⚛️ Physique-Chimie</span><span>🎓 DEF & BAC</span><span>👨‍🏫 Professeurs</span></div>
  </div>
+
  <div class="hero-panel">
- <div class="panel-head"><b>Espace Élève</b><span>Bonjour 👋</span></div>
- <div class="learning">
-   <small>Progression générale</small>
-   <strong id="valProgression">78%</strong>
-   <div class="metrics">
-     <div><b id="valCours">12</b><span>Cours suivis</span></div>
-     <div><b id="valMoyenne">86%</b><span>Moyenne</span></div>
-     <div><b id="valQuiz">14</b><span>Quiz réussis</span></div>
-   </div>
-   <div class="next">
-     <small>PROCHAIN COURS</small>
-     <b>Physique-Chimie · Les forces</b>
-     <span>Demain · 18:00</span>
-   </div>
+  <div class="panel-head"><b>Espace Élève</b><span>Bonjour 👋</span></div>
+  <div class="learning">
+    <small>Progression générale</small>
+    <strong id="valProgression">78%</strong>
+    <div class="metrics">
+      <div><b id="valCours">12</b><span>Cours suivis</span></div>
+      <div><b id="valMoyenne">86%</b><span>Moyenne</span></div>
+      <div><b id="valQuiz">14</b><span>Quiz réussis</span></div>
+    </div>
+    <div class="next">
+      <small>PROCHAIN COURS</small>
+      <b>Physique-Chimie · Les forces</b>
+      <span>Demain · 18:00</span>
+    </div>
+  </div>
  </div>
-</div>
+</section>
 
 <section id="cours" class="section">
  <div class="heading"><span>CATALOGUE</span><h2>Des parcours conçus pour la réussite scolaire.</h2><p>Commence par une matière forte, puis élargis progressivement ton apprentissage.</p></div>
@@ -76,18 +78,6 @@
 
 <footer><div class="brand"><div class="logo"><span>H</span><i>+</i></div><b>HamLearn</b></div><small>Prototype MVP 2026 · Marque à vérifier avant lancement commercial.</small></footer>
 
-<div id="authModal" class="modal" style="display:none;">
-  <div style="background:white; padding:24px; max-width:320px; margin:60px auto; border-radius:8px;">
-    <h3 id="authTitle">Se connecter</h3>
-    <input id="authEmail" type="email" placeholder="Email" style="width:100%; margin:8px 0; padding:8px;">
-    <input id="authPassword" type="password" placeholder="Mot de passe" style="width:100%; margin:8px 0; padding:8px;">
-    <p id="authError" style="color:red; font-size:14px;"></p>
-    <button onclick="doLogin()" class="btn primary" style="width:100%;">Se connecter</button>
-    <button onclick="doSignup()" style="width:100%; margin-top:8px;">Créer un compte</button>
-    <button onclick="closeAuthModal()" style="width:100%; margin-top:8px;">Fermer</button>
-  </div>
-</div>
-
 <div id="payModal" class="modal" style="display:none;">
   <div style="background:white; padding:24px; max-width:340px; margin:60px auto; border-radius:8px;">
     <h3>Paiement Orange Money</h3>
@@ -103,18 +93,10 @@
 
 <script src="app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
 <script>
-  const supabaseUrl = 'https://bgzlxnptulngevjfvyli.supabase.co'
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnemx4bnB0dWxuZ2V2amZ2eWxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0ODQ5MTYsImV4cCI6MjEwMzA2MDkxNn0.WXs1nzZ0hoQwEi0TU-nvliB9vP4W_1RsMC1Rz4jZ9gU'
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
-
-  function openAuthModal() {
-    document.getElementById('authModal').style.display = 'block'
-  }
-  function closeAuthModal() {
-    document.getElementById('authModal').style.display = 'none'
-  }
-
+  // Reste ici uniquement ce qui n'est pas géré par app.js (paiement Orange Money),
+  // pour éviter tout conflit avec le supabaseClient déclaré dans app.js.
   function payerOrangeMoney(nomOffre, prix) {
     document.getElementById('payPlanInfo').innerText = nomOffre + ' — ' + prix
     document.getElementById('payModal').style.display = 'block'
@@ -122,52 +104,5 @@
   function closePayModal() {
     document.getElementById('payModal').style.display = 'none'
   }
-
-  async function doLogin() {
-    const email = document.getElementById('authEmail').value
-    const password = document.getElementById('authPassword').value
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password })
-    if (error) {
-      document.getElementById('authError').innerText = error.message
-    } else {
-      alert('Connecté !')
-      closeAuthModal()
-      chargerProfil()
-    }
-  }
-
-  async function doSignup() {
-    const email = document.getElementById('authEmail').value
-    const password = document.getElementById('authPassword').value
-    const { data, error } = await supabaseClient.auth.signUp({ email, password })
-    if (error) {
-      document.getElementById('authError').innerText = error.message
-    } else {
-      await supabaseClient.from('profiles').insert({
-        id: data.user.id,
-        email: email,
-        role: 'eleve',
-        nom: email.split('@')[0],
-        progression: 0,
-        cours_suivis: 0,
-        moyenne: 0,
-        quiz_reussis: 0
-      })
-      alert('Compte créé ! Vérifie ton email pour confirmer.')
-      closeAuthModal()
-    }
-  }
-
-  async function chargerProfil() {
-    const { data: { user } } = await supabaseClient.auth.getUser()
-    if (!user) return
-    const { data: profil } = await supabaseClient.from('profiles').select('*').eq('id', user.id).single()
-    if (profil) {
-      document.getElementById('valProgression').innerText = profil.progression + '%'
-      document.getElementById('valCours').innerText = profil.cours_suivis
-    }
-  }
-
-  chargerProfil()
 </script>
 </body></html>
