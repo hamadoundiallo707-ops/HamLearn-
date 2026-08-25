@@ -1,108 +1,939 @@
 <!doctype html>
 <html lang="fr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HamLearn — Science & Réussite scolaire</title><link rel="stylesheet" href="style.css"></head>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>
+    HamLearn — Science & Réussite scolaire
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-  <div class="brand"><div class="logo"><span>H</span><i>+</i></div><div><b>HamLearn</b><small>Science & Réussite scolaire</small></div></div>
-  <nav><a href="#cours">Cours</a><a href="#methode">Méthode</a><a href="#offres">Offres</a><a href="#parents">Parents</a><a href="#enseignants">Enseignants</a></nav>
-  <button class="btn outline" onclick="openModal('login')">Se connecter</button>
+
+  <div class="brand">
+
+    <div class="logo">
+      <span>H</span>
+      <i>+</i>
+    </div>
+
+    <div>
+      <b>HamLearn</b>
+      <small>
+        Science & Réussite scolaire
+      </small>
+    </div>
+
+  </div>
+
+
+  <nav>
+
+    <a href="#cours">
+      Cours
+    </a>
+
+    <a href="#methode">
+      Méthode
+    </a>
+
+    <a href="#offres">
+      Offres
+    </a>
+
+    <a href="#parents">
+      Parents
+    </a>
+
+    <a href="#enseignants">
+      Enseignants
+    </a>
+
+  </nav>
+
+
+  <button
+    class="btn outline"
+    onclick="openModal('login')"
+  >
+    Se connecter
+  </button>
+
 </header>
 
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
- <div>
-  <span class="eyebrow">HAMLEARN • ÉCOLE VIRTUELLE</span>
-  <h1>Comprendre.<br><em>Progresser. Réussir.</em></h1>
-  <p>Une école virtuelle pensée pour les élèves d'Afrique francophone : sciences, préparation aux examens, exercices corrigés et accompagnement humain.</p>
-  <div class="actions"><button class="btn primary" onclick="location.hash='cours'">Découvrir les cours</button><button class="btn soft" onclick="openModal('trial')">Essai gratuit</button></div>
-  <div class="trust"><span>🔬 Sciences</span><span>⚛️ Physique-Chimie</span><span>🎓 DEF & BAC</span><span>👨‍🏫 Professeurs</span></div>
- </div>
 
- <div class="hero-panel">
-  <div class="panel-head"><b>Espace Élève</b><span>Bonjour 👋</span></div>
-  <div class="learning">
-    <small>Progression générale</small>
-    <strong id="valProgression">78%</strong>
-    <div class="metrics">
-      <div><b id="valCours">12</b><span>Cours suivis</span></div>
-      <div><b id="valMoyenne">86%</b><span>Moyenne</span></div>
-      <div><b id="valQuiz">14</b><span>Quiz réussis</span></div>
+  <div>
+
+    <span class="eyebrow">
+      HAMLEARN • ÉCOLE VIRTUELLE
+    </span>
+
+    <h1>
+      Comprendre.<br>
+      <em>Progresser. Réussir.</em>
+    </h1>
+
+    <p>
+      Une école virtuelle pensée pour les élèves
+      d'Afrique francophone : sciences, préparation
+      aux examens, exercices corrigés et
+      accompagnement humain.
+    </p>
+
+
+    <div class="actions">
+
+      <button
+        class="btn primary"
+        onclick="location.hash='cours'"
+      >
+        Découvrir les cours
+      </button>
+
+      <button
+        class="btn soft"
+        onclick="openModal('signup')"
+      >
+        Essai gratuit
+      </button>
+
     </div>
-    <div class="next">
-      <small>PROCHAIN COURS</small>
-      <b>Physique-Chimie · Les forces</b>
-      <span>Demain · 18:00</span>
+
+
+    <div class="trust">
+
+      <span>
+        🔬 Sciences
+      </span>
+
+      <span>
+        ⚛️ Physique-Chimie
+      </span>
+
+      <span>
+        🎓 DEF & BAC
+      </span>
+
+      <span>
+        👨‍🏫 Professeurs
+      </span>
+
     </div>
+
   </div>
- </div>
-</section>
 
-<section id="cours" class="section">
- <div class="heading"><span>CATALOGUE</span><h2>Des parcours conçus pour la réussite scolaire.</h2><p>Commence par une matière forte, puis élargis progressivement ton apprentissage.</p></div>
- <div class="filters"><button class="active" onclick="filter('all',this)">Tous</button><button onclick="filter('science',this)">Sciences</button><button onclick="filter('math',this)">Maths</button><button onclick="filter('exam',this)">Examens</button><button onclick="filter('skill',this)">Méthodologie</button></div>
- <div id="courseGrid" class="grid"></div>
-</section>
 
-<section id="methode" class="section dark">
- <div class="heading"><span>LA MÉTHODE HAMLEARN</span><h2>Le numérique amplifie le travail du professeur.</h2></div>
- <div class="steps">
-  <article><b>01</b><h3>Comprendre</h3><p>Vidéo courte, fiche de synthèse et explications adaptées au niveau de l'élève.</p></article>
-  <article><b>02</b><h3>Pratiquer</h3><p>Exercices progressifs, corrections et quiz pour vérifier les acquis.</p></article>
-  <article><b>03</b><h3>Être accompagné</h3><p>Questions au professeur, classes en direct et tutorat selon la formule.</p></article>
-  <article><b>04</b><h3>Mesurer</h3><p>Progression, résultats, badges et préparation structurée aux examens.</p></article>
- </div>
-</section>
 
-<section id="offres" class="section">
- <div class="heading"><span>MODÈLE ÉCONOMIQUE</span><h2>Accessible pour les familles. Viable pour l'entreprise.</h2><p>Les prix ci-dessous sont des hypothèses de lancement à tester avec un groupe pilote.</p></div>
- <div class="plans">
-  <article><small>DÉCOUVERTE</small><h3>Gratuit</h3><strong>0 <i>FCFA</i></strong><p>Quelques cours, quiz et ressources gratuites pour découvrir HamLearn.</p><button class="btn soft" onclick="openModal('trial')">Commencer</button></article>
-  <article class="featured"><label>RECOMMANDÉ</label><small>ABONNEMENT</small><h3>HamLearn Pro</h3><strong>5 000 <i>FCFA/mois</i></strong><p>Catalogue complet, exercices, quiz, suivi et classes collectives.</p><button class="btn primary" onclick="payerOrangeMoney('HamLearn Pro', '5 000 FCFA/mois')">S'abonner</button></article>
-  <article><small>PREMIUM</small><h3>HamLearn Mentor</h3><strong>10 000 <i>FCFA/mois</i></strong><p>Tout Pro + accompagnement enseignant prioritaire et tutorat.</p><button class="btn primary" onclick="payerOrangeMoney('HamLearn Mentor', '10 000 FCFA/mois')">Choisir</button></article>
- </div>
- <div class="revenue"><b>Autres revenus possibles</b><span>Cours premium à l'unité</span><span>Préparation intensive DEF/BAC</span><span>Tutorat individuel</span><span>Licences pour établissements</span><span>Formations pour enseignants</span></div>
-</section>
+  <!-- ESPACE ELEVE -->
 
-<section id="parents" class="section parent">
- <div><span>ESPACE PARENT</span><h2>Un suivi simple des progrès de l'élève.</h2><p>Le parent consulte les résultats, la progression, les cours suivis et les points à renforcer.</p><button class="btn primary" onclick="openModal('parent')">Voir l'espace parent</button></div>
- <div class="parent-card"><b>Rapport hebdomadaire</b><div class="report"><span>Présence <b>92%</b></span><span>Progression <b>78%</b></span><span>Quiz <b>14 / 16</b></span><span>À revoir <b>3 notions</b></span></div></div>
-</section>
+  <div class="hero-panel">
 
-<section id="enseignants" class="section teacher">
- <div class="heading"><span>ESPACE ENSEIGNANT</span><h2>Une plateforme où les enseignants peuvent aussi créer de la valeur.</h2><p>À terme, HamLearn permettra aux enseignants partenaires de publier leurs cours, suivre leurs élèves et être rémunérés selon un modèle de partage de revenus.</p></div>
- <div class="teacher-grid"><div><b>Créer</b><p>Vidéos, PDF, exercices, quiz et parcours.</p></div><div><b>Accompagner</b><p>Questions, classes virtuelles et tutorat.</p></div><div><b>Monétiser</b><p>Cours premium et partage de revenus selon contrat.</p></div><div><b>Analyser</b><p>Progression et statistiques des apprenants.</p></div></div>
- <button class="btn primary" onclick="openModal('teacher')">Devenir enseignant partenaire</button>
-</section>
+    <div class="panel-head">
 
-<section class="section cta"><span>HAMLEARN</span><h2>La science devient plus simple.<br>La réussite devient plus proche.</h2><button class="btn primary" onclick="openModal('trial')">Rejoindre le pilote</button></section>
+      <b>
+        Espace Élève
+      </b>
 
-<footer><div class="brand"><div class="logo"><span>H</span><i>+</i></div><b>HamLearn</b></div><small>Prototype MVP 2026 · Marque à vérifier avant lancement commercial.</small></footer>
+      <span>
+        Bonjour 👋
+      </span>
 
-<div id="payModal" class="modal" style="display:none;">
-  <div style="background:white; padding:24px; max-width:340px; margin:60px auto; border-radius:8px;">
-    <h3>Paiement Orange Money</h3>
-    <p id="payPlanInfo" style="font-weight:bold;"></p>
-    <p>Pour t'abonner, envoie le montant via Orange Money au numéro :</p>
-    <p style="font-size:20px; font-weight:bold; color:#ff6600;">07 70 77 76 91</p>
-    <p style="font-size:14px; color:#555;">Une fois le paiement effectué, envoie une capture de confirmation par WhatsApp pour activer ton abonnement.</p>
-    <button onclick="closePayModal()" class="btn primary" style="width:100%; margin-top:12px;">Fermer</button>
+    </div>
+
+
+    <div class="learning">
+
+      <small>
+        Progression générale
+      </small>
+
+      <strong id="valProgression">
+        78%
+      </strong>
+
+
+      <div class="metrics">
+
+        <div>
+
+          <b id="valCours">
+            12
+          </b>
+
+          <span>
+            Cours suivis
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <b id="valMoyenne">
+            86%
+          </b>
+
+          <span>
+            Moyenne
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <b id="valQuiz">
+            14
+          </b>
+
+          <span>
+            Quiz réussis
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="next">
+
+        <small>
+          PROCHAIN COURS
+        </small>
+
+        <b>
+          Physique-Chimie · Les forces
+        </b>
+
+        <span>
+          Demain · 18:00
+        </span>
+
+      </div>
+
+    </div>
+
   </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COURS
+===================================================== -->
+
+<section
+  id="cours"
+  class="section"
+>
+
+  <div class="heading">
+
+    <span>
+      CATALOGUE
+    </span>
+
+    <h2>
+      Des parcours conçus pour la réussite scolaire.
+    </h2>
+
+    <p>
+      Commence par une matière forte, puis élargis
+      progressivement ton apprentissage.
+    </p>
+
+  </div>
+
+
+  <div class="filters">
+
+    <button
+      class="active"
+      onclick="filter('all',this)"
+    >
+      Tous
+    </button>
+
+    <button
+      onclick="filter('science',this)"
+    >
+      Sciences
+    </button>
+
+    <button
+      onclick="filter('math',this)"
+    >
+      Maths
+    </button>
+
+    <button
+      onclick="filter('exam',this)"
+    >
+      Examens
+    </button>
+
+    <button
+      onclick="filter('skill',this)"
+    >
+      Méthodologie
+    </button>
+
+  </div>
+
+
+  <div
+    id="courseGrid"
+    class="grid"
+  ></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     METHODE
+===================================================== -->
+
+<section
+  id="methode"
+  class="section dark"
+>
+
+  <div class="heading">
+
+    <span>
+      LA MÉTHODE HAMLEARN
+    </span>
+
+    <h2>
+      Le numérique amplifie le travail du professeur.
+    </h2>
+
+  </div>
+
+
+  <div class="steps">
+
+    <article>
+
+      <b>01</b>
+
+      <h3>
+        Comprendre
+      </h3>
+
+      <p>
+        Vidéo courte, fiche de synthèse
+        et explications adaptées au niveau
+        de l'élève.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>02</b>
+
+      <h3>
+        Pratiquer
+      </h3>
+
+      <p>
+        Exercices progressifs, corrections
+        et quiz pour vérifier les acquis.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>03</b>
+
+      <h3>
+        Être accompagné
+      </h3>
+
+      <p>
+        Questions au professeur, classes
+        en direct et tutorat selon la formule.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>04</b>
+
+      <h3>
+        Mesurer
+      </h3>
+
+      <p>
+        Progression, résultats, badges
+        et préparation structurée aux examens.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OFFRES
+===================================================== -->
+
+<section
+  id="offres"
+  class="section"
+>
+
+  <div class="heading">
+
+    <span>
+      MODÈLE ÉCONOMIQUE
+    </span>
+
+    <h2>
+      Accessible pour les familles.
+      Viable pour l'entreprise.
+    </h2>
+
+    <p>
+      Les prix ci-dessous sont des hypothèses
+      de lancement à tester avec un groupe pilote.
+    </p>
+
+  </div>
+
+
+  <div class="plans">
+
+
+    <!-- GRATUIT -->
+
+    <article>
+
+      <small>
+        DÉCOUVERTE
+      </small>
+
+      <h3>
+        Gratuit
+      </h3>
+
+      <strong>
+        0
+        <i>FCFA</i>
+      </strong>
+
+      <p>
+        Quelques cours, quiz et ressources
+        gratuites pour découvrir HamLearn.
+      </p>
+
+      <button
+        class="btn soft"
+        onclick="openModal('signup')"
+      >
+        Commencer
+      </button>
+
+    </article>
+
+
+
+    <!-- PRO -->
+
+    <article class="featured">
+
+      <label>
+        RECOMMANDÉ
+      </label>
+
+      <small>
+        ABONNEMENT
+      </small>
+
+      <h3>
+        HamLearn Pro
+      </h3>
+
+      <strong>
+        5 000
+        <i>FCFA/mois</i>
+      </strong>
+
+      <p>
+        Catalogue complet, exercices, quiz,
+        suivi et classes collectives.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="payerOrangeMoney(
+          'HamLearn Pro',
+          '5 000 FCFA/mois'
+        )"
+      >
+        S'abonner
+      </button>
+
+    </article>
+
+
+
+    <!-- MENTOR -->
+
+    <article>
+
+      <small>
+        PREMIUM
+      </small>
+
+      <h3>
+        HamLearn Mentor
+      </h3>
+
+      <strong>
+        10 000
+        <i>FCFA/mois</i>
+      </strong>
+
+      <p>
+        Tout Pro + accompagnement enseignant
+        prioritaire et tutorat.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="payerOrangeMoney(
+          'HamLearn Mentor',
+          '10 000 FCFA/mois'
+        )"
+      >
+        Choisir
+      </button>
+
+    </article>
+
+  </div>
+
+
+  <div class="revenue">
+
+    <b>
+      Autres revenus possibles
+    </b>
+
+    <span>
+      Cours premium à l'unité
+    </span>
+
+    <span>
+      Préparation intensive DEF/BAC
+    </span>
+
+    <span>
+      Tutorat individuel
+    </span>
+
+    <span>
+      Licences pour établissements
+    </span>
+
+    <span>
+      Formations pour enseignants
+    </span>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARENTS
+===================================================== -->
+
+<section
+  id="parents"
+  class="section parent"
+>
+
+  <div>
+
+    <span>
+      ESPACE PARENT
+    </span>
+
+    <h2>
+      Un suivi simple des progrès de l'élève.
+    </h2>
+
+    <p>
+      Le parent consulte les résultats,
+      la progression, les cours suivis
+      et les points à renforcer.
+    </p>
+
+    <button
+      class="btn primary"
+      onclick="openModal('parent')"
+    >
+      Voir l'espace parent
+    </button>
+
+  </div>
+
+
+  <div class="parent-card">
+
+    <b>
+      Rapport hebdomadaire
+    </b>
+
+    <div class="report">
+
+      <span>
+        Présence
+        <b>92%</b>
+      </span>
+
+      <span>
+        Progression
+        <b>78%</b>
+      </span>
+
+      <span>
+        Quiz
+        <b>14 / 16</b>
+      </span>
+
+      <span>
+        À revoir
+        <b>3 notions</b>
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENSEIGNANTS
+===================================================== -->
+
+<section
+  id="enseignants"
+  class="section teacher"
+>
+
+  <div class="heading">
+
+    <span>
+      ESPACE ENSEIGNANT
+    </span>
+
+    <h2>
+      Une plateforme où les enseignants
+      peuvent aussi créer de la valeur.
+    </h2>
+
+    <p>
+      À terme, HamLearn permettra aux enseignants
+      partenaires de publier leurs cours, suivre
+      leurs élèves et être rémunérés selon un
+      modèle de partage de revenus.
+    </p>
+
+  </div>
+
+
+  <div class="teacher-grid">
+
+    <div>
+
+      <b>
+        Créer
+      </b>
+
+      <p>
+        Vidéos, PDF, exercices,
+        quiz et parcours.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <b>
+        Accompagner
+      </b>
+
+      <p>
+        Questions, classes virtuelles
+        et tutorat.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <b>
+        Monétiser
+      </b>
+
+      <p>
+        Cours premium et partage
+        de revenus selon contrat.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <b>
+        Analyser
+      </b>
+
+      <p>
+        Progression et statistiques
+        des apprenants.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="btn primary"
+    onclick="openModal('teacher')"
+  >
+    Devenir enseignant partenaire
+  </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="section cta">
+
+  <span>
+    HAMLEARN
+  </span>
+
+  <h2>
+    La science devient plus simple.<br>
+    La réussite devient plus proche.
+  </h2>
+
+  <button
+    class="btn primary"
+    onclick="openModal('signup')"
+  >
+    Rejoindre le pilote
+  </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div class="brand">
+
+    <div class="logo">
+
+      <span>
+        H
+      </span>
+
+      <i>
+        +
+      </i>
+
+    </div>
+
+    <b>
+      HamLearn
+    </b>
+
+  </div>
+
+
+  <small>
+    Prototype MVP 2026 · Marque à vérifier
+    avant lancement commercial.
+  </small>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MODALE PAIEMENT
+===================================================== -->
+
+<div
+  id="payModal"
+  class="modal"
+  style="display:none;"
+>
+
+  <div
+    style="
+      background:white;
+      padding:24px;
+      max-width:340px;
+      margin:60px auto;
+      border-radius:8px;
+    "
+  >
+
+    <h3>
+      Paiement Orange Money
+    </h3>
+
+    <p
+      id="payPlanInfo"
+      style="font-weight:bold;"
+    ></p>
+
+    <p>
+      Pour t'abonner, envoie le montant
+      via Orange Money au numéro :
+    </p>
+
+    <p
+      style="
+        font-size:20px;
+        font-weight:bold;
+        color:#ff6600;
+      "
+    >
+      07 70 77 76 91
+    </p>
+
+    <p
+      style="
+        font-size:14px;
+        color:#555;
+      "
+    >
+      Une fois le paiement effectué,
+      envoie une capture de confirmation
+      par WhatsApp pour activer ton abonnement.
+    </p>
+
+    <button
+      onclick="closePayModal()"
+      class="btn primary"
+      style="
+        width:100%;
+        margin-top:12px;
+      "
+    >
+      Fermer
+    </button>
+
+  </div>
+
 </div>
 
-<div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+
+
+<!-- =====================================================
+     MODALE PRINCIPALE
+===================================================== -->
+
+<div
+  id="modal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeModal()"
+    >
+      ×
+    </button>
+
+    <div id="modalContent"></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+<!-- Supabase doit être chargé AVANT app.js -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<!-- Application HamLearn -->
 
 <script src="app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>
-<script>
-  // Reste ici uniquement ce qui n'est pas géré par app.js (paiement Orange Money),
-  // pour éviter tout conflit avec le supabaseClient déclaré dans app.js.
-  function payerOrangeMoney(nomOffre, prix) {
-    document.getElementById('payPlanInfo').innerText = nomOffre + ' — ' + prix
-    document.getElementById('payModal').style.display = 'block'
-  }
-  function closePayModal() {
-    document.getElementById('payModal').style.display = 'none'
-  }
-</script>
-</body></html>
+
+
+</body>
+
+</html>
