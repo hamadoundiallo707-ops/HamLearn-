@@ -100,7 +100,7 @@ async function doLogin() {
   } else {
     alert('Connecté !')
     closeAuthModal()
-  }
+  } 
 }
 async function doSignup() {
   const email = document.getElementById('authEmail').value
@@ -109,6 +109,16 @@ async function doSignup() {
   if (error) {
     document.getElementById('authError').innerText = error.message
   } else {
+    await supabaseClient.from('profiles').insert({
+      id: data.user.id,
+      email: email,
+      role: 'eleve',
+      nom: email.split('@')[0],
+      progression: 0,
+      cours_suivis: 0,
+      moyenne: 0,
+      quiz_reussis: 0
+    })
     alert('Compte créé ! Vérifie ton email pour confirmer.')
     closeAuthModal()
   }
