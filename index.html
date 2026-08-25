@@ -65,6 +65,17 @@
 <section class="section cta"><span>HAMLEARN</span><h2>La science devient plus simple.<br>La réussite devient plus proche.</h2><button class="btn primary" onclick="openModal('trial')">Rejoindre le pilote</button></section>
 
 <footer><div class="brand"><div class="logo"><span>H</span><i>+</i></div><b>HamLearn</b></div><small>Prototype MVP 2026 · Marque à vérifier avant lancement commercial.</small></footer>
+<div id="authModal" class="modal" style="display:none;">
+  <div style="background:white; padding:24px; max-width:320px; margin:60px auto; border-radius:8px;">
+    <h3 id="authTitle">Se connecter</h3>
+    <input id="authEmail" type="email" placeholder="Email" style="width:100%; margin:8px 0; padding:8px;">
+    <input id="authPassword" type="password" placeholder="Mot de passe" style="width:100%; margin:8px 0; padding:8px;">
+    <p id="authError" style="color:red; font-size:14px;"></p>
+    <button onclick="doLogin()" class="btn primary" style="width:100%;">Se connecter</button>
+    <button onclick="doSignup()" style="width:100%; margin-top:8px;">Créer un compte</button>
+    <button onclick="closeAuthModal()" style="width:100%; margin-top:8px;">Fermer</button>
+  </div>
+</div>
 
 <div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -74,5 +85,34 @@
   const supabaseUrl = 'https://bgzlxnptulngevjfvyli.supabase.co'
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnemx4bnB0dWxuZ2V2amZ2eWxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0ODQ5MTYsImV4cCI6MjEwMzA2MDkxNn0.WXs1nzZ0hoQwEi0TU-nvliB9vP4W_1RsMC1Rz4jZ9gU'
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+function openAuthModal() {
+  document.getElementById('authModal').style.display = 'block'
+}
+function closeAuthModal() {
+  document.getElementById('authModal').style.display = 'none'
+}
+async function doLogin() {
+  const email = document.getElementById('authEmail').value
+  const password = document.getElementById('authPassword').value
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password })
+  if (error) {
+    document.getElementById('authError').innerText = error.message
+  } else {
+    alert('Connecté !')
+    closeAuthModal()
+  }
+}
+async function doSignup() {
+  const email = document.getElementById('authEmail').value
+  const password = document.getElementById('authPassword').value
+  const { data, error } = await supabaseClient.auth.signUp({ email, password })
+  if (error) {
+    document.getElementById('authError').innerText = error.message
+  } else {
+    alert('Compte créé ! Vérifie ton email pour confirmer.')
+    closeAuthModal()
+  }
+}
+
 </script>
 </body></html>
