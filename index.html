@@ -69,4 +69,10 @@
 <div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const supabaseUrl = 'https://bgzlxnptulngevjfvyli.supabase.co'
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnemx4bnB0dWxuZ2V2amZ2eWxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0ODQ5MTYsImV4cCI6MjEwMzA2MDkxNn0.WXs1nzZ0hoQwEi0TU-nvliB9vP4W_1RsMC1Rz4jZ9gU'
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+</script>
 </body></html>
