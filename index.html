@@ -102,27 +102,27 @@ async function doLogin() {
     closeAuthModal()
   } 
 }
-async function doSignup() {
+async function doLogin() {
   const email = document.getElementById('authEmail').value
   const password = document.getElementById('authPassword').value
-  const { data, error } = await supabaseClient.auth.signUp({ email, password })
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password })
   if (error) {
     document.getElementById('authError').innerText = error.message
   } else {
-    await supabaseClient.from('profiles').insert({
-      id: data.user.id,
-      email: email,
-      role: 'eleve',
-      nom: email.split('@')[0],
-      progression: 0,
-      cours_suivis: 0,
-      moyenne: 0,
-      quiz_reussis: 0
-    })
-    alert('Compte créé ! Vérifie ton email pour confirmer.')
+    alert('Connecté !')
     closeAuthModal()
-  }
+    chargerProfil()
+  } 
 }
 
+async function chargerProfil() {
+  const { data: { user } } = await supabaseClient.auth.getUser()
+  if (!user) return
+  const { data: profil } = await supabaseClient.from('profiles').select('*').eq('id', user.id).single()
+  if (profil) {
+    document.getElementById('valProgression').innerText = profil.progression + '%'
+    document.getElementById('valCours').innerText = profil.cours_suivis
+  }
+}
 </script>
 </body></html>
